@@ -5,5 +5,5 @@ Repositório destinado ao tabalho de Projeto de Sistemas de Informação.
 
 Componentes:
 
-Tiago Moura
+Tiago Moura / 
 Jorenilson Lopes
