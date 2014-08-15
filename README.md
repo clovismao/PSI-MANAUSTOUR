@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿Knowledgebase
 =============
 
@@ -10,3 +11,16 @@ Atualmente estou buscando pessoas que queiram fazer parte deste projeto. Caso te
 
 
 <b>Componente(s):</b><br>Jorenilson Santos
+=======
+﻿PSI-MANAUSTOUR
+==============
+
+Repositório destinado ao tabalho de Projeto de Sistemas de Informação.
+
+Componentes:
+
+Tiago Moura / 
+Jorenilson Lopes /
+Vicente Sarubbi /
+Eder Barroncas
+>>>>>>> 16b42bf41f4825885f29598d3eb6db4df70de89b

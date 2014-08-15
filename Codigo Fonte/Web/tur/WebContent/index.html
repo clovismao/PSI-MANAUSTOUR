@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+
+<!--------------------
+LOGIN FORM
+by: Amit Jakhu
+www.amitjakhu.com
+--------------------->
+
+<!--META-->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Manaus sempre ao seu alcance</title>
+
+<!--STYLESHEETS-->
+<link href="css/style2.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css">
+
+	<!--SCRIPTS-->
+	<script type="text/javascript"	src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+	<script type="text/javascript" src="extjs/ext-all.js"></script>
+
+
+	<!--Slider-in icons-->
+	<script type="text/javascript">
+$(document).ready(function() {
+	$(".username").focus(function() {
+		$(".user-icon").css("left","-46px");
+	});
+	$(".username").blur(function() {
+		$(".user-icon").css("left","0px");
+	});
+	
+	$(".password").focus(function() {
+		$(".pass-icon").css("left","-46px");
+	});
+	$(".password").blur(function() {
+		$(".pass-icon").css("left","0px");
+	});
+});
+</script>
+</head>
+<body>
+
+
+	<!--WRAPPER-->
+	<div id="wrapper">
+
+		<!--SLIDE-IN ICONS-->
+		<div class="user-icon"></div>
+		<div class="pass-icon"></div>
+		<!--END SLIDE-IN ICONS-->
+
+		<!--LOGIN FORM-->
+		<form name="login-form" class="login-form" action="autenticar"
+			method="post">
+
+			<!--HEADER-->
+			<div class="header">
+				<!--TITLE-->
+				<h1>Manaus TuR</h1>
+				<!--END TITLE-->
+				<!--DESCRIPTION-->
+				<span>Conheça a cidade Manaus, e tenha tudo o que precisar
+					bem na palma da mão.</span>
+				<!--END DESCRIPTION-->
+			</div>
+			<!--END HEADER-->
+
+			<!--CONTENT-->
+			<div class="content">
+				<!--USERNAME-->
+				<input name="txtusuario" type="text" class="input username"
+					value="Usuário" onfocus="this.value=''" />
+				<!--END USERNAME-->
+				<!--PASSWORD-->
+				<input name="txtsenha" type="password" class="input password"
+					value="Password" onfocus="this.value=''" />
+				<!--END PASSWORD-->
+			</div>
+			<!--END CONTENT-->
+
+			<!--FOOTER-->
+			<div class="footer">
+				<!--LOGIN BUTTON-->
+				<input type="submit" name="submit" value="Entrar" class="button" />
+				<!--END LOGIN BUTTON-->
+				<!--REGISTER BUTTON-->
+				<input type="button" name="register" value="Registrar"
+					class="register" id="btregistrar" />
+				<!--END REGISTER BUTTON-->
+			</div>
+			<!--END FOOTER-->
+
+		</form>
+		<!--END LOGIN FORM-->
+
+	</div>
+	<!--END WRAPPER-->
+
+	<!--GRADIENT-->
+	<div class="gradient"></div>
+	<!--END GRADIENT-->
+
+</body>
+<script type="text/javascript">
+	var cadastroWindow;
+	var formulario;
+	
+	Ext.onReady(function(){
+		Ext.get("btregistrar").on('click',function(s,e){
+			
+			//Formulário
+			formulario = new Ext.form.FormPanel({
+				id:'formulario'
+				,baseCls: 'x-plain'
+				,labelWidth: 100
+				,labelAlign: 'right'
+				,style: 'margin: 15px'
+				,defaultType: 'textfield'
+				,items:[{
+					fieldLabel: 'Nome Completo'
+					,name: 'txtnome'
+					,anchor: '90%'
+					,allowBlank: false
+					,id: 'cpnome'
+				},{
+					fieldLabel: 'E-Mail'
+					,name: 'txtemail'
+					,anchor: '90%'
+					,vtype: 'email'
+					,allowBlank: false
+					
+				},{
+					fieldLabel: 'Usuário'
+					,name: 'txtusuario'
+					,anchor: '90%'
+					,allowBlank: false
+					
+				},{
+					fieldLabel: 'Senha'
+					,name: 'txtsenha'
+					,anchor: '90%'
+					,minLength: 6
+					,maxlength: 8
+					,allowBlank: false
+					
+				}]
+			});
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			//janela
+			if (cadastroWindow==null){
+				cadastroWindow = new Ext.Window({
+					id: 'cadastroWindow'
+					,title: 'Novo no Manaus TuR ? Increva-se'
+					,layout: 'fit'
+					,width: 380
+					,height: 210
+					,closeAction: 'hide'
+					,plain: true
+					,modal: true
+					,items: formulario
+					,buttons: [{
+						text: 'Criar minha conta'
+						,handler: function(){
+							if (!formulario.getForm().isValid()){
+								return false;
+							}
+							formulario.submit({
+								url: 'servletusuario'
+								,waitTitle: 'Carregando...'
+								,waitMsg: 'Estamos salvando seus dados.'
+								,success: function()
+								{
+									Ext.MessageBox.alert('Seja bem vindo','A partir de agora você pode aproveitar o melhor que temos para lhe oferecer.');
+								}
+								,failure: function()
+								{
+									Ext.Msg.show({
+										title: 'Opa !'
+										,msg: 'Infelizmente ocorreu algum erro quando tentáva-mos gravar os seus dados.<br>Mas não desanime, recarregue a página novamente e tente registrar-se de novo.'
+										,buttons: Ext.Msg.OK
+										,icon: Ext.MessageBox.ERROR
+									});
+								}
+							});
+						}
+					},{
+						text: 'Cancelar'
+						,handler: function(){
+							formulario.getForm().reset();
+						}
+					},{
+						text: 'Sair'
+						,handler: function(){
+							cadastroWindow.hide();
+						}
+					}]
+				});
+			}	
+			cadastroWindow.show();
+		});
+	});
+</script>
+</html>
