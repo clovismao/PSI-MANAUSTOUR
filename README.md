@@ -7,4 +7,5 @@ Componentes:
 
 Tiago Moura / 
 Jorenilson Lopes /
-Vicente Sarubbi
+Vicente Sarubbi /
+Eder Barroncas
