@@ -1,4 +1,4 @@
-package br.com.fucapi.tur;
+package br.com.fucapi.tour;
 
 public class Categorias {
 	private static String nome;

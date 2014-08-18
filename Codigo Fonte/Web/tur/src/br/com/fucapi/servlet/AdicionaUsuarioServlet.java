@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.fucapi.jdbc.TurDao;
-import br.com.fucapi.tur.Usuarios;
+import br.com.fucapi.tour.Usuario;
 
 
 /**
@@ -38,7 +38,7 @@ public class AdicionaUsuarioServlet extends HttpServlet{
 		
 	
 		//Criar um novo objeto Usuario
-		Usuarios addusuario = new Usuarios();
+		Usuario addusuario = new Usuario();
 		
 		
 		//Obtem os parâmetros enviado pelo formulário de cadastro

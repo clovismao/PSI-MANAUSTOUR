@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.fucapi.jdbc.TurDao;
-import br.com.fucapi.tur.Categorias;
+import br.com.fucapi.tour.Categorias;
 
 @WebServlet("/servletcat")
 public class CategoriaServlet extends HttpServlet{

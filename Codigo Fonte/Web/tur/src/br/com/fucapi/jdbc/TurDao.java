@@ -4,8 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-import br.com.fucapi.tur.Categorias;
-import br.com.fucapi.tur.Usuarios;
+import br.com.fucapi.tour.Categorias;
+import br.com.fucapi.tour.Usuario;
 
 public class TurDao {
 	// Variável de referência
@@ -21,12 +21,12 @@ public class TurDao {
 	 * 
 	 * @param usuario
 	 */
-	public boolean adicionarusuario(Usuarios usuario) {
+	public boolean adicionarusuario(Usuario usuario) {
 		boolean retorno = false;
 		
 		String sql = "insert into tbcadusuarios (nomecompleto, email, usuario, senha) value (?,?,?,?)";
 		try {
-			Usuarios novousuario = new Usuarios();
+			Usuario novousuario = new Usuario();
 			// PreparedStatement para inserção dos dados no banco
 			PreparedStatement stmt = conexao.prepareStatement(sql);
 			stmt.setString(1, novousuario.getNome());
