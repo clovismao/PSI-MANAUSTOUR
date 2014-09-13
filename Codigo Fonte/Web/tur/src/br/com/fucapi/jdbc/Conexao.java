@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-/**
+/**oo
  * Classe destinada a abrir conexão com o banco de dados
  * através do drivermanager JDBC.
  * @author Jorenilson Lopes dos Santos
